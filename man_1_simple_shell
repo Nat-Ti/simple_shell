@@ -1,0 +1,67 @@
+.Simple Shell Manual Page
+
+.SH NAME
+
+.B simple_shell - hsh
+- command line interpreter or shell
+
+.SH SYNOPSIS
+
+.B  ./hsh
+.I (no options yet)
+
+.SH DESCRIPTION
+
+The shell is a command line interface (CLI) program that takes commands from the keyboard and gives them to the operating system to perform.
+
+.SH ARGUMENTS
+From input, the first argument is assumed to be an executable command file. It follows the parameters taken by that particular command.
+
+.B hsh
+is the executable that will interpret the command. It executes it and then, exit. With exit, an exit status returns with the status of the previous command executed. For instance, status is 0 on non-execution.
+
+.SH INTEREACTIVE MODE EXAMPLE
+.PP
+$ ./hsh
+.br
+shell$ /bin/ls
+.br
+hsh main.c shell.c
+.br
+shell$ exit
+.br
+$
+.br
+.PP
+.PP
+.SH NON-INTERACTIVE MODE EXAMPLE
+.PP
+$ echo "/bin/ls" | . /hsh
+.br
+hsh main.c shell.c
+.br
+
+.SH ENVIRONMENT
+When the simple shell is invoked, it is given an array of strings called the enviroment. Note that string is a copy. The strings are environment variables and are represented in this format
+.B name=value
+
+.SH BUILTIN COMMANDS
+The following commands below are called and handled directly in the shell. Therefore, these commands do not need to call upon a child process to be executed. However, with the exit builtin it returns an exits status of 0 on successful execution. In failure, the exti will return 0 when the command invoked can no execute. also, it will return 1 when the command is not found. It will return a value of 2 in failure misuse of the shell builtin
+.br
+the following commands are executed in the shell as builtins
+
+.TP
+.B exit
+- Exits the shell
+
+.TP
+.B env
+- Prints the variables from the current enviroment
+
+.SH BUGS
+No known bugs at this writing (Oct 21, 2021).
+Please report any issues to the authors.
+
+.SH AUTHOR
+Kelbi Zerihun
+Eleni Aklilu
